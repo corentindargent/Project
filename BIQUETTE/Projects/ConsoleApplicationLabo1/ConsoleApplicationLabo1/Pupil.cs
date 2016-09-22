@@ -28,7 +28,7 @@ namespace ConsoleApplicationLabo1
         public char[] TabEval
         { 
             get{return tabEval;}
-            set { tabEval = value;} 
+            set {tabEval = value;} 
         }
 
 

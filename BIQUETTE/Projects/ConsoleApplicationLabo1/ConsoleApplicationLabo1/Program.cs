@@ -37,13 +37,57 @@ namespace ConsoleApplicationLabo1
             lPupil.Add(p3);
             lPupil.Add(p4);
 
+
+            //Covariance 
+            /*
+               List<Pupil> listPupils = new List<Pupil>()
+                {
+                    new Pupil("AAAA", 10,4),
+                    new Pupil("BB", 10,4),
+                    new Pupil("Cc", 10,4)
+               };
+
+               List<Person> listPerson = new List<Person>()
+                {
+                    new Person("Alferd",100),
+                    new Person("Batamn", 34),
+                    new Person("Cartman", 14)
+               };
+
+               var listFusion = listPerson.Union(listPupils);
+               string TbMassage = Environment.NewLine;
+
+               foreach (var person in listFusion)
+               {
+                   System.Console.Write(person.Name);
+
+                   System.Console.Write(TbMassage);
+                   System.Console.Read();
+
+               }
+               */
+
+            List<Pupil> listPupilsDuplicated = new List<Pupil>()
+             {
+                 new Pupil("Arvey", 10,4),
+                 new Pupil("Arvey", 10,3),
+                 new Pupil("BB", 17,6),
+                 new Pupil("Co", 10,8),
+                 new Pupil("Co", 10,4),
+            };
+        
+
+
+
             //varibale anonymes
-            var pupilGrad1Plus6 = from pupil in lPupil
-                                  where pupil.Age == 6 && pupil.Grade == 1
-                                  select pupil;
+            /* var pupilGrad1Plus6 = from pupil in lPupil
+                                   where pupil.Age == 6 && pupil.Grade == 1
+                                   select pupil;
+            
+            //Garnissage var anonyme via fct anonyme
+              //var pupilGrad1Plus6 = lPupil.TakeWhile(lPupil)
 
-
-            if(pupilGrad1Plus6 != null)
+            if (pupilGrad1Plus6 != null)
             {
                 foreach(var pupil in pupilGrad1Plus6)
                 {
@@ -54,6 +98,9 @@ namespace ConsoleApplicationLabo1
                 }
             }
             System.Console.Read();
+            */
+
+
 
             /*            
                p1.AddEvaluation(evaluation: 'O', title: "Racket");            

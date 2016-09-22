@@ -9,6 +9,8 @@ namespace ConsoleApplicationLabo1
     public static class Parameter
     {
         static int activity = 10;
+
+        
         static char[] tab = {'T', 'S', 'R'};
     }
 }
