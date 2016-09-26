@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplicationLabo1
 {
-    class Person
+    public class Person
     {
         //varibale instance
         // private String name; -> pas necesaire pas valider les entrées de « value »
@@ -38,7 +38,7 @@ namespace ConsoleApplicationLabo1
 
 
 
-        //Constructeur affacet tjs une valeure à la propriete et non à la variabel instance
+        //Constructeur affect tjs une valeure à la propriete et non à la variabel instance
         public Person(String name,int age)
         {
             Name = name;
@@ -49,6 +49,8 @@ namespace ConsoleApplicationLabo1
         {
             return ""+Name+" est âgé(e) "+Age+" ans";
         }
+
+       
 
     }
 }

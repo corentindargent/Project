@@ -4,32 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplicationLabo1
+namespace ConsoleApplicationLabo2
 {
-    class Activity
+    class Entreprise
     {
-        public String Title
-        {
-            get;
-            set;
-        }
-        public Boolean Compulsory
+        public string Name
         {
             get;
             set;
         }
 
-        public Activity(String title,Boolean compulsory)
+        public string Localite
         {
-            Title = title;
-            Compulsory = compulsory;
+            get;
+            set;
+        }
+
+        public Entreprise (string name,string localite)
+        {
+            Name = name;
+            Localite = localite;
         }
 
         public override string ToString()
         {
-            return " "+Title+ "" + ((Compulsory == true)?" est obligatoire":" ");
+            return "L'entreprise "+Name+" se situe à "+ Localite;
         }
-
 
     }
 }

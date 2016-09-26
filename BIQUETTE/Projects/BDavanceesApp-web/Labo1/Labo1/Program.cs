@@ -34,7 +34,7 @@ namespace Labo1
                     connectionString.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
-                    long idStudent = 0;
+                    long idStudent = int.MinValue;
 
                     while(reader.Read())
                     {

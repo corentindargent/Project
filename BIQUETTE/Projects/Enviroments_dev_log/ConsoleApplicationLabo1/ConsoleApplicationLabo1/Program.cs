@@ -75,11 +75,12 @@ namespace ConsoleApplicationLabo1
                  new Pupil("Co", 10,8),
                  new Pupil("Co", 10,4),
             };
-        
 
 
 
-            //varibale anonymes
+
+            //VARIABLE ANONYME
+
             /* var pupilGrad1Plus6 = from pupil in lPupil
                                    where pupil.Age == 6 && pupil.Grade == 1
                                    select pupil;
@@ -102,6 +103,7 @@ namespace ConsoleApplicationLabo1
 
 
 
+
             /*            
                p1.AddEvaluation(evaluation: 'O', title: "Racket");            
                 System.Console.Write(p1);
@@ -111,6 +113,53 @@ namespace ConsoleApplicationLabo1
                 System.Console.Read();
             */
 
+
+            //DYNAMIC APPROCHE VIA DELEGATE
+
+            /* Utilisation de la methode definie avec delegue
+             *
+             *  System.Console.Write(lPupil.PrintPupilActivityCompulsory(...)); 
+             *  
+             *       ou les .. peuvent etre remplacee par +ieus facons             
+             */
+
+
+
+         //1er MANIERE
+
+            /*
+                    System.Console.WriteLine(p1.PrintPupilActivityCompulsory(
+         delegate (Activity activity)
+         {
+             return activity.Title +"\n";
+         }));
+                */
+
+
+         //2eme MANIERE  a partir methode declare deans main                   
+
+            //System.Console.WriteLine(p1.PrintPupilActivityCompulsory(StaticPrintActivity));
+
+
+         //3eme maniere a partir d'une classe qui definit la methode
+
+
+            PrintActivityDelegate p = new PrintActivityDelegate();
+            System.Console.WriteLine(p1.PrintPupilActivityCompulsory(p.PrintActivity));
+
+            // 4eme maniere expression lambda
+
+            System.Console.WriteLine(p1.PrintPupilActivityCompulsory(activity =>
+                activity.Title + Environment.NewLine));
+
+            System.Console.Read();
+
+           
+        }
+
+        private static string StaticPrintActivity(Activity activity)
+        {
+            return activity.Title + "\n";
         }
     }
 }

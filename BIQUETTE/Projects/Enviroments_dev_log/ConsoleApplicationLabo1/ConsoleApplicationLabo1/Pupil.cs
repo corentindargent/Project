@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplicationLabo1
 {
-    class Pupil:Person
+    public class Pupil:Person
     {
         private int grade;
 
@@ -39,6 +39,11 @@ namespace ConsoleApplicationLabo1
             LstActivity = new List<Activity>();
             TabEval = new char[10];
         }
+
+        //cons pour eleve 1er sans activite
+        public Pupil(String name, int age) : this(name, age, 1) { }
+
+                //le mot this reference le cons decrit au dessus
 
         public void AddActivity(Activity activity)
         {
@@ -82,6 +87,19 @@ namespace ConsoleApplicationLabo1
                 }
             }            
         }
+
+        public delegate string DelegatePrintActivityCompulsory(Activity activity);
+
+        public string PrintPupilActivityCompulsory(DelegatePrintActivityCompulsory MyPrintActivity)
+        {
+            int numAct = 0;
+            string ch = base.ToString() + " a choisi les activités obligatoires : \n";
+            foreach (Activity activity in LstActivity)
+                if (activity.Compulsory)
+                    ch += (++numAct) + " " + MyPrintActivity(activity);
+            return ch;
+        }
+        //MyPrintActivity -> methode d'impression chois par le programmeur
 
     }
 }
