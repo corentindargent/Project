@@ -38,7 +38,8 @@ namespace WPFClient
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
+            _customer.AccountBalance = MontantAAjouterAuCompte.Value.Value;            
+            _context.SaveChanges();            
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,9 @@ namespace ClassLibrary1
         public string PostCode { get; set; }
 
         public string Remark { get; set; }
+
+        //Add Optimistic Concurency
+        [Timestamp]
+        public byte[] RowVersion{ get; set; }
     }
 }

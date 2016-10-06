@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.Entity;
 using ClassLibrary1;
 using System.Linq;
+using System.Data.Entity.Infrastructure;
 
 namespace UnitTestProject2
 {
@@ -24,7 +25,6 @@ namespace UnitTestProject2
         {
             return new CompanyContext();
         }
-
         [TestMethod]
         public void InsertionFonctionnelle()
         {
@@ -33,6 +33,27 @@ namespace UnitTestProject2
                 Assert.AreEqual(1, context.Customers.ToList().Count);
             }
         }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(DbUpdateConcurrencyException))]
+        public void DetectedTestEditionsConcurrentes()
+        {
+            using (CompanyContext contextDeJohn = GetContext())
+            {
+                using (CompanyContext contextDeSarah = GetContext())
+                {
+                    var clientDeJohn = contextDeJohn.Customers.First();
+                    var clientDeSarah = contextDeSarah.Customers.First();
+
+                    clientDeJohn.AccountBalance += 1000;
+                    contextDeJohn.SaveChanges();
+
+                    clientDeSarah.AccountBalance += 2000;
+                    contextDeSarah.SaveChanges();
+                }
+            }
+        }      
        
     }
 }
